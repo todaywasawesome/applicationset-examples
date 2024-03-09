@@ -7,7 +7,7 @@ spec:
   - clusters: {}
   template:
     metadata:
-      name: {{.Release.Name}}-{{ printf "{{name}}"}}-guestbook
+      name: {{.Release.Name}}{{ printf "{{name}}"}}
     spec:
       project: "{{ .Values.template.project }}"
       source:
