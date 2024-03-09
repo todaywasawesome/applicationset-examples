@@ -1,6 +1,6 @@
 name: appset
 template:
-  project: Default
+  project: default
   source:
     repoURL: https://github.com/argoproj/argocd-example-apps/
     targetRevision: HEAD
