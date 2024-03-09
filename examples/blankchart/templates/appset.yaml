@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: {{ .Release.Name }}
+spec:
+  generators:
+  - clusters: {}
+  template:
+    metadata:
+      name: '{{.Release.Name}}-{{ .Values.name }}'
+    spec:
+      project: "{{ .Values.template.project }}"
+      source:
+        repoURL: {{ .Values.template.source.repoURL }}
+        targetRevision: {{ .Values.template.source.targetRevision }}
+        path: {{ .Values.template.source.path }}
+      destination:
+        server: {{ printf "'{{%s}}'" .Values.template.destination.server }}
+        namespace: {{ .Values.template.destination.namespace }}
+      syncPolicy:
+        syncOptions:
+        - CreateNamespace=true

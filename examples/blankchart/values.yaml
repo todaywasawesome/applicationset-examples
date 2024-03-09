@@ -1,0 +1,10 @@
+name: appset
+template:
+  project: Default
+  source:
+    repoURL: https://github.com/argoproj/argocd-example-apps/
+    targetRevision: HEAD
+    path: guestbook
+  destination:
+    server: server
+    namespace: guestbook
