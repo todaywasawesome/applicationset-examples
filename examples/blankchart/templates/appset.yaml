@@ -16,9 +16,12 @@ spec:
         path: {{ .Values.template.source.path }}
         name: {{.Release.Name}}{{ printf "{{name}}"}}
         test: {{ .Release.Name | printf "%s{{name}}"}}{{ .Release.Name | printf "%s{{name}}" | sha256sum | trunc 4 }}
+        helm:
+          releaseName: {{ .Release.Name | printf "%s{{name}}"}}{{ .Release.Name | printf "%s{{name}}" | sha256sum | trunc 4 }}
       destination:
         server: {{ printf "'{{%s}}'" .Values.template.destination.server }}
         namespace: {{ .Values.template.destination.namespace }}
+  
       syncPolicy:
         syncOptions:
         - CreateNamespace=true
