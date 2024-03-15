@@ -8,7 +8,7 @@ spec:
   - clusters: {}
   template:
     metadata:
-      name: {{ .Release.Name }}
+      name: {{ .Values.color }}{{ .Values.name }}{{ .Values.sha }}
     spec:
       project: "{{ .Values.template.project }}"
       source:
