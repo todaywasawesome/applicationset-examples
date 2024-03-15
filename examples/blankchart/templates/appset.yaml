@@ -20,7 +20,7 @@ spec:
           valuesObject:
             sha: {{ .Release.Name | sha256sum | trunc 5 }}
             color: {{ .Values.color }}
-            name: {{name}}
+            name: {{ printf "'{{name}}'" }}
       destination:
         server: {{ printf "'{{%s}}'" .Values.template.destination.server }}
         namespace: {{ .Values.template.destination.namespace }}
