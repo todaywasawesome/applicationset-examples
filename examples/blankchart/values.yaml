@@ -1,4 +1,6 @@
 name: appset
+color: blue
+sha: 000000
 template:
   project: default
   source:
