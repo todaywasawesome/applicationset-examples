@@ -24,10 +24,12 @@ spec:
       destination:
         server: {{ printf "'{{%s}}'" .Values.template.destination.server }}
         namespace: {{ .Values.template.destination.namespace }}
-  
       syncPolicy:
         syncOptions:
         - CreateNamespace=true
+        automated:
+          selfHeal: true
+          prune: true
 
 ## Desired Name color-cluster-sha
 ## Sha represents the generation and feeds into the next sha
