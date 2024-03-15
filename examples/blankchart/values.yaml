@@ -2,9 +2,9 @@ name: appset
 template:
   project: default
   source:
-    repoURL: https://github.com/argoproj/argocd-example-apps/
-    targetRevision: HEAD
-    path: guestbook
+    repoURL: https://github.com/todaywasawesome/applicationset-examples.git
+    targetRevision: exp
+    path: examples/blankchart
   destination:
     server: server
     namespace: guestbook
