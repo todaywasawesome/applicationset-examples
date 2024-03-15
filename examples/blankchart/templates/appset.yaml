@@ -7,15 +7,13 @@ spec:
   - clusters: {}
   template:
     metadata:
-      name: {{ .Release.Name | printf "%s{{name}}"}}{{ .Release.Name | printf "%s{{name}}" | sha256sum | trunc 4 }}
+      name: {{ .Release.Name }}
     spec:
       project: "{{ .Values.template.project }}"
       source:
         repoURL: {{ .Values.template.source.repoURL }}
         targetRevision: {{ .Values.template.source.targetRevision }}
         path: {{ .Values.template.source.path }}
-        name: {{.Release.Name}}{{ printf "{{name}}"}}
-        test: {{ .Release.Name | printf "%s{{name}}"}}{{ .Release.Name | printf "%s{{name}}" | sha256sum | trunc 4 }}
         helm:
           releaseName: {{ .Release.Name | printf "%s{{name}}"}}{{ .Release.Name | printf "%s{{name}}" | sha256sum | trunc 4 }}
       destination:
